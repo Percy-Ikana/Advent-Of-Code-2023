@@ -13,7 +13,6 @@ def partOne(data):
 
 def partTwo(data):
     listNum = [('one',1),('two',2),('three',3),('four',4),('five',5),('six',6),('seven',7),('eight',8),('nine',9)]
-    numDict = {1:"one",2:"two",3:"three",4:"four",5:"five",6:"six",7:"seven",8:"eight",9:"nine"}
     cali = []
     for line in data:
         earliestNumber = ('',1000)
@@ -23,10 +22,8 @@ def partTwo(data):
         for string, number in listNum:
             if line.find(string) < earliestNumber[1] and line.find(string) != -1:
                 earliestNumber = (number,line.find(string))
-                earRep = True
             if line.rfind(string) > latestNumber[1] and line.rfind(string) != -1:
                 latestNumber = (number,line.rfind(string))
-                lateRep = True
         for dig in range(len(line)):
             if line[dig].isdigit():
                 if dig < earldig[1]:
@@ -35,7 +32,6 @@ def partTwo(data):
                     latedig = (line[dig], dig)
         first = earliestNumber[0] if earliestNumber[1] < earldig[1] else earldig[0]
         last = latestNumber[0] if latestNumber[1] > latedig[1] else latedig[0]
-
         cali.append(int(str(first)+str(last)))
     print(sum(cali))
 
