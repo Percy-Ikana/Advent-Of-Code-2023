@@ -22,7 +22,8 @@ int main()
     // Create and open a text file
     vector<string> fileContents;
     string text;
-    //read in the file. This is before timing, so we arent dealing with disk latency between machines in the timing.
+    //read in the file. This is before timing, so we arent dealing with 
+    //disk latency between machines in the timing.
     ifstream MyFile("input");
     while (getline(MyFile, text)) {
         fileContents.insert(end(fileContents), text);

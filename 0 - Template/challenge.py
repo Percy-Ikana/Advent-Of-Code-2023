@@ -25,7 +25,8 @@ def main(fileName):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('-t', '--test', help='use the test input or not', action='store_false', required=False)
+    parser.add_argument('-t', '--test', help='use the test input or not', 
+                        action='store_false', required=False)
     args = parser.parse_args()
     fileName =join(sys.path[0],( "input" if args.test else "Testinput"))
     main(fileName)
