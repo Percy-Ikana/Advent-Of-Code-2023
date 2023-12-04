@@ -7,14 +7,15 @@ from os.path import join
 def findNumber(gridDict, pos):
     #we have a dict of a grid, and have to build the numbers it contains
     line = list(gridDict[pos[0]].keys())
-    #content = 
-    splits = [x for x in range(1,len(line)+1) if (x == len(line)) or ((abs(line[x-1]-line[x])) != 1)]
+    splits = [x for x in range(1,len(line)+1) if (x == len(line)) \
+              or ((abs(line[x-1]-line[x])) != 1)]
     splits.insert(0,0)
     nums = []
-    #we now have where the lines split, so we can build a list of numbers, and the sets of coords they take up
+    #we now have where the lines split, so we can build a list of numbers,
+    #and the sets of coords they take up
     for split in range(len(splits)):
         if split is not 0:
-            numbers = line[splits[split-1]:splits[split]]# if splits[split-1] != 0 or len(splits) == 2 else line[splits[split-1]:splits[split]]
+            numbers = line[splits[split-1]:splits[split]]
             spots = set()
             num = []
             for numPos in numbers:
@@ -28,7 +29,6 @@ def findNumber(gridDict, pos):
                 pass
             return entry
 
-
 def getGrid(data):
     gridDict = {}
     symbols = set({})
@@ -38,14 +38,13 @@ def getGrid(data):
             if data[line][elem] is not '.':
                 if data[line][elem].isdigit():
                     gridDict[line][elem] = int(data[line][elem])
-                elif data[line][elem] is not '.' and data[line][elem] is not '\n':
+                elif data[line][elem] != '.' and data[line][elem] != '\n':
                     symbols.add((data[line][elem],(line,elem)))
     return [gridDict, symbols]
     
 def partOne(data):
     
     gridDict, symbols = getGrid(data)
-    
     parts = []
     foundcoords = []
     for symbol, coords in symbols:
