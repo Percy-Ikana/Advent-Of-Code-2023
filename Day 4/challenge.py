@@ -17,11 +17,10 @@ def partOne(data):
             for x in match:
                 inital = inital*2
         points.append(inital//2)
-    print(sum(points))
+    return sum(points)
         
 
 def partTwo(data):
-    points = []
     cards = {}
     for line in data:
         game = int(line.split(':')[0].split()[1])
@@ -33,7 +32,7 @@ def partTwo(data):
     for line in cards:
         for match in range(1,cards[line][0]+1):
             cards[line+match][1] = cards[line+match][1]+1*cards[line][1]
-    print(sum([cards[x][1] for x in cards]))
+    return sum([cards[x][1] for x in cards])
 
 def main(fileName):
     data = []
