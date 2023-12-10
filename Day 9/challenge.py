@@ -24,7 +24,10 @@ def expandList(lists, reverse=False):
     for list in range(len(lists)-2, -1, -1):
         #we are in, so we now expand each list using the previous element
         lists[list].append(lists[list][-1]+lists[list+1][-1]*mul)
-        pass
+
+    if reverse:
+        for list in lists:
+            list.reverse()
 
 def partOne(data):
     groups = [[int(y) for y in x.split()] for x in data]
@@ -43,7 +46,7 @@ def partTwo(data):
         diffs = [copy.deepcopy(group)]
         getDifferenceList(group, diffs)
         expandList(diffs, True)
-        finalData.append(diffs[0][-1])
+        finalData.append(diffs[0][0])
     return sum(finalData)
 
 def main(fileName):
