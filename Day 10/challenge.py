@@ -134,6 +134,7 @@ def partTwo(data):
     start = list(map.keys())[list(map.values()).index('S')]
     repalceStart(map, start)
     trail = buildLoop(map, start)
+    printMap(trail, map)
     newMap = removeExtras(fullMap, trail)
 
     return checkpoints(newMap)
