@@ -11,7 +11,7 @@ def findCombo(row, groups):
     #these two default returns happen if we are "out" of groups to check
     #If we have no "#" in the string we are computing, then we return 1, this is so progress on this branch does not wipe out the other
     #since there could be matches on the other side. Without this is always returns 0
-    #we undercount else
+    #we undercount else. There is a match here, we just missed it.
     if len(groups) == 0 and row.count("#") == 0:
         return 1
     #if we get here, nothing in the numbers, we return 0, no matches here. we overcount otherwise
