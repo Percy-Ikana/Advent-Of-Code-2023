@@ -123,8 +123,6 @@ def partTwo(data):
     for i in ran:
         for each in [(0,-1),(-1,0),(0,1),(1,0)]:
             tilted = tilt(frozendict(tilted), bounds,  each)
-    #printGrid(tilted, bounds)
-    #96003
     return calcOffset(tilted, (0,-1), bounds)
 
 def main(fileName):
